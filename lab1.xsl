@@ -22,17 +22,17 @@
 	</xsl:template>
 	<xsl:template match = "корень">
 		<msqrt>
-			<xsl:apply-templates>
+			<xsl:apply-templates />
 		</msqrt>
 	</xsl:template>
 	<xsl:template match = "строка">
 		<mrow>
-			<xsl:apply-templates>
+			<xsl:apply-templates />
 		</mrow>
 	</xsl:template>
 	<xsl:template match = "число">
 		<mn>
-			<xsl:apply-templates>
+			<xsl:apply-templates />
 		</mn>
 	</xsl:template>
 	<xsl:template match="низверх">

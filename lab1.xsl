@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet	xmlns:xsl = "http://www.w3.org/1999/XSL/Transform" version = "1.0">
+	<xsl:template match = "/">
 	 <html>
       <head>
         <meta charset="utf-8"/>
@@ -14,7 +15,7 @@
                     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       </body>
     </html>
-<xsl:template match = "/">
+</xsl:template>
 	<xsl:template match = "оператор">
 		<mi>
 			<xsl:apply-templates />
@@ -52,5 +53,5 @@
             <xsl:apply-templates />
         </msub>
     </xsl:template>
-</xsl:template>
+
 </xsl:stylesheet>

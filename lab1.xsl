@@ -3,14 +3,19 @@
         <html lang="en">
             <head>
                 <meta charset="utf-8"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <title>Math</title>
             </head>
             <body>
-                <h4 id="author" title="Мурзин Михаил 4107">Мурзин Михаил 4107</h4>
+                <h4 id="author" title="Мурзин Михаил">Мурзин Михаил</h4>
+                
+                <div style="width: min-content">
                     <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                         <mstyle displaystyle="true">
                             <xsl:apply-templates/>
                         </mstyle>
                     </math>
+                </div>
                 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"/>
                 <script id="MathJax-script" async="true"
                         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>

@@ -1,56 +1,65 @@
-<xsl:stylesheet	xmlns:xsl = "http://www.w3.org/1999/XSL/Transform" version = "1.0">
-	<xsl:template match = "/">
-	 <html>
-      <head>
-        <meta charset="utf-8"/>
-      </head>
-      <body>
-        <p >Murzin Mikhail P4107</p>
-        <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:template match="/">
+        <html lang="en">
+            <head>
+                <meta charset="utf-8"/>
+            </head>
+            <body>
+                <h4 id="author" title="Мурзин Михаил 4107">Мурзин Михаил 4107</h4>
+                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                        <mstyle displaystyle="true">
+                            <xsl:apply-templates/>
+                        </mstyle>
+                    </math>
+                <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"/>
+                <script id="MathJax-script" async="true"
+                        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
+            </body>
+        </html>
+    </xsl:template>
+    <xsl:template match="строка">
+        <mrow>
             <xsl:apply-templates/>
-        </math>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script"
-                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      </body>
-    </html>
-</xsl:template>
-	<xsl:template match = "оператор">
-		<mi>
-			<xsl:apply-templates />
-		</mi>
-	</xsl:template>
-	<xsl:template match = "корень">
-		<msqrt>
-			<xsl:apply-templates />
-		</msqrt>
-	</xsl:template>
-	<xsl:template match = "строка">
-		<mrow>
-			<xsl:apply-templates />
-		</mrow>
-	</xsl:template>
-	<xsl:template match = "число">
-		<mn>
-			<xsl:apply-templates />
-		</mn>
-	</xsl:template>
-	<xsl:template match="низверх">
+        </mrow>
+    </xsl:template>
+    <xsl:template match="операнд">
+        <mi>
+            <xsl:apply-templates/>
+        </mi>
+    </xsl:template>
+    <xsl:template match="оператор">
+        <mo>
+            <xsl:apply-templates/>
+        </mo>
+    </xsl:template>
+    <xsl:template match="корень">
+        <msqrt>
+            <xsl:apply-templates/>
+        </msqrt>
+    </xsl:template>
+    <xsl:template match="дробь">
+        <mfrac>
+            <xsl:apply-templates/>
+        </mfrac>
+    </xsl:template>
+    <xsl:template match="число">
+        <mn>
+            <xsl:apply-templates/>
+        </mn>
+    </xsl:template>
+    <xsl:template match="низверх">
         <munderover>
-            <xsl:apply-templates />
+            <xsl:apply-templates/>
         </munderover>
     </xsl:template>
-
     <xsl:template match="верх">
         <msup>
-            <xsl:apply-templates />
+            <xsl:apply-templates/>
         </msup>
     </xsl:template>
-
     <xsl:template match="низ">
         <msub>
-            <xsl:apply-templates />
+            <xsl:apply-templates/>
         </msub>
     </xsl:template>
-
 </xsl:stylesheet>

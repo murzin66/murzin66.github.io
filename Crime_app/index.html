@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Описание места преступления</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    img.crime-scene {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1><p align = "center">Описание места преступления</p></h1>
+    <img class="crime-scene" src="crime.jpg" alt="Crime Scene">
+
+    <form id="crimeForm">
+		<label for="location">Имя, фамилия студента, учебная группа:</label>
+        <input type="text" id="name" name="name" required>
+		
+        <label for="location">Местоположение:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="date">Дата проишествия:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Время проишествия:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="description">Описание преступления:</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="evidence">Найденные улики:</label>
+        <textarea id="evidence" name="evidence" rows="4" required></textarea>
+
+        <div class="form-buttons">
+            <button type="button" onclick="submitForm()">Отправить</button>
+        </div>
+    </form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+<script>
+const URL_APP = "https://script.google.com/macros/s/AKfycbxeObbLsNF79T1h1lPFOYCOxnJfGfHaztgGO550jveQRch9-hTOMaQGjs0oEmKFecEN/exec";
+const form = document.querySelector("#form");
+
+form.action = URL_APP;
+
+form.addeventListener("submit", async(ev)=>{
+	ev.preventDefault();
+	const name = document.querySelector("[name=name]");
+	const location = document.querySelector("[location=location]");
+	const date = document.querySelector("[date=date]");
+	const time = document.querySelector("[time=time]");
+	const description = document.querySelector("[description=description]");
+	const evidence = document.querySelector("[evidence=evidence]");
+
+	let details = {
+	name:name.value.trim(),
+	location:location.value.trim(),
+	date:date.value.trim(),
+	time:time.value.trim(),
+	description:description.value.trim(),
+	evidence:evidence.value.trim(),
+	
+	};
+	let formBody = [];
+	for (let property in details){
+	let encodedKey = encodeURIComponent(property);
+	let encodedValue = encodeURIComponent(details[property]);
+	formBody.push(encodedKey+"="+encodedValue);
+	}
+	formBody = formBody.join("&");
+	const result = await fetch(URL_APP,{
+		method:"POST",
+		headers:{
+		"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+		},
+		cors:"no-cors",
+		body:formBody,
+	})
+	.then((res) =>res.json())
+	if (result.type ==="success"){
+	alert("Благодарим за участие! Форма отправлена")
+	}
+})
+</script>
+
+
+</body>
+</html>

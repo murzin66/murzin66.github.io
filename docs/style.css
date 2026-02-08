@@ -1,0 +1,155 @@
+.image-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width:80%;
+  background-color: white;
+  margin-top: 2%;
+  padding-top: 22%;
+  padding-bottom: 22%;
+  border-radius: 20px;
+}
+body{
+  background-color: #606d51;
+}
+
+
+#object-position-1 {
+  width: 80%;
+  transform: rotate(180deg);
+}
+.first-flower{
+  position: absolute;
+  top: 4%;
+  right: 12%;
+}
+.second-flower{
+position: absolute;
+  bottom: 10%;
+
+}
+.Names{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-family:'Viaoda Libre';
+  font-style: italic;
+  color:#616e52 ;
+  font-size: 4.2rem;
+}
+.date{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-family:'Viaoda Libre';
+  color:#616e52 ;
+  font-size: 2.2rem;
+}
+#object-position-2 {
+  width: 80%;
+  padding-left: 2%;
+}
+.page-container{
+  width:80%;
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.pattaya-regular {
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.great-vibes-regular {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.cormorant-garamond {
+  font-family: "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+.viaoda-libre-regular {
+  font-family: "Viaoda Libre", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.invitation-text{
+  padding-top: 25%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-family:'Viaoda Libre';
+  color:#616e52 ;
+  font-size: 2.2rem;
+}
+.invitation-text-2{
+  padding-top: 2%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: large;
+  font-family:'Viaoda Libre';
+  color:#616e52 ;
+  font-size: 2.2rem;
+}
+p {
+  line-height: 0.6;
+}
+
+.zags-photo-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 10%;
+  margin-top: 5%;
+}
+#zags-photo{
+  width: 100%;
+}
+.zags-photo-sub-container{
+width: 80%;
+}
+a{
+  text-decoration:none;
+  color: inherit;
+  cursor: pointer;
+}
+#program-photo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.timer{
+  background-color: #e1e3de;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+.form-button{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  display: flex;
+  margin-top: 3%;
+  padding-left: 1%;
+  font-family:'Viaoda Libre';
+  font-size: 1.8rem;
+  background-color: #707d61;
+  border-radius: 10px;
+  border-color: white;
+  color:white;
+}
+.form-button:hover{
+  transform: translateY(-2px);
+  cursor: pointer;
+}

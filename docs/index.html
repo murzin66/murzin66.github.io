@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Great+Vibes&family=Pattaya&family=Viaoda+Libre&display=swap" rel="stylesheet">
+<title> Приглашение на свадьбу</title>
+</head>
+<script>
+const images = document.querySelectorAll('.zoom-img');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    img.classList.toggle('active');
+    document.body.classList.toggle('overlay-active');
+  });
+});
+</script>
+<body>
+<div class="page">
+<div class = "page-container">
+    <div class = image-wrapper>
+        <div class = "first-flower">
+            <img id="object-position-1" src = "flower-2.png" >
+        </div>
+        <div class = "Names">Михаил</div>
+        <div class = "Names">Зиля</div>
+        <div class = "date">01.06.2026</div>
+
+        <div class = second-flower>
+            <img id="object-position-2" src = "flower-2.png" >
+        </div>
+        <div class = "invitation-text"><p>Дорог<span id ="word-end">...</span>&nbsp;<span id="guest-name">...</span>, приглашаем вас на нашу свадьбу!</p>
+        <p>Свадебная церемония состоится 1 июня 2026 в 18:20 по адресу </p><p>город Санкт-Петербург, ул. <u><a href = "https://yandex.ru/maps/-/CPEL72O0">Фурштатская д.52</a></u></p></div>
+
+
+        <div class = "zags-photo-container">
+            <div class="zags-photo-sub-container"><img src = "zags-1.png" id = "zags-photo"></div>
+            <div class="zags-photo-sub-container"><img src = "zags-2.jpg"id = "zags-photo"></div>
+        </div>
+        <div class = "invitation-text-2">После регистрации приглашаем вас на семейный ужин <p>в ресторане FermA на Синопской набережной</p></div>
+        <div class = "zags-photo-container">
+            <div class="zags-photo-sub-container"><img src = "rest1.jpg" id = "zags-photo" style="height: 280px;"></div>
+            <div class="zags-photo-sub-container"><img src = "rest2.JPG"id = "zags-photo" style="height: 280px;"></div>
+        </div>
+        <div class = "program">
+            <img src = "program-3.svg" style="width: 70%;" id = "program-photo">
+        </div>
+        <div class = "timer">
+           <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+            <a href="https://logwork.com/countdown-bpn7" class="countdown-timer" data-style="circles" data-timezone="Europe/Moscow" data-language="ru" data-textcolor="#91998e" data-date="2026-06-01 18:00" data-background="#707d61" data-digitscolor="#91998e" data-unitscolor="#91998e"> До торжества осталось</a>
+        </div>
+        <div class = "invitation-text-2">Просим вас предварительно выбрать алкогольные напитки и предупредить нас в случае изменения планов </div>
+        <button class = "form-button" onclick="window.location.href='https://forms.gle/ymv2gqoJmEBHH5zWA'">Перейти к форме</button>
+</div>
+
+</div>
+</body>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+const name = urlParams.get('name');
+
+if (name) {
+    document.getElementById('guest-name').innerText = name;
+} else {
+    document.getElementById('guest-name').innerText = ' наш близкий друг';
+}
+const end_appeal = urlParams.get('end-appeal');
+if (end_appeal){
+    document.getElementById('word-end').innerText = end_appeal;
+} else {
+    document.getElementById('word-end').innerText = 'ие';
+}
+</script>
+</html>
